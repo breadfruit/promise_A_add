@@ -1,0 +1,27 @@
+var mypromise = function(excutor){
+    //属性
+    this.promiseState = 'pending'
+    this.promiseResult = null
+    try {
+        excutor(resolve,reject)
+    } catch (error) {
+        reject(error)
+    }
+
+    //
+    excutor(resolve,reject) = function(){
+        
+    }
+    function resolve(data){
+        return data
+    }
+    function reject(reponse){
+        return reponse
+    }
+}
+mypromise.prototype.catch = function(){
+
+}
+mypromise.prototype.then = function(onResolved,onRejected){
+    //判断
+}

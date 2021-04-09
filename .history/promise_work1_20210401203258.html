@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='./promise.js'></script>
+</head>
+<body>
+    <script>
+        const promise = new mypromise((resolve, reject) => {
+            resolve('success')
+            //throw new Error('cndcdbhcbhd')
+        })
+ 
+        // 这个时候将promise定义一个p1，然后返回的时候返回p1这个promise
+        // const p1 = promise.then(value => {
+        //     console.log(1)
+        //     console.log('resolve', value)
+        //     //return p1
+            
+        // })
+ 
+        // 运行的时候会走reject
+        promise.then().then(value => {
+            console.log(2)
+            throw new Error('cndcdbhcbhd')
+        }).then(r=>{
+            console.log(r)
+        },e =>{   
+            console.log(e.message)
+        })
+
+
+
+
+        
+      
+    </script>
+</body>
+</html>
