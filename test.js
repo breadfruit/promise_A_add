@@ -1,14 +1,27 @@
-const { resolve } = require('./mypromise.js')
+
 const promise = require('./promise.js')
 const p1 = new promise((resolve, reject) => {
-   //resolve('1')
-   reject('err')
-    // setTimeout(()=>{
-    //     reject('gg')
-    // },1000)
-    
+   // 目前这里只处理同步的问题
+   resolve('success')
 })
-    // const res3 = promise.resolve('res3')
+
+function other () {
+   return new promise((resolve, reject) =>{
+      resolve('other')
+   })
+}
+p1.then(value => {
+   console.log(1)
+   console.log('resolve', value)
+   return other()
+}).then(value => {
+   console.log(2)
+   console.log('resolve', value)
+})
+promise.reject('dd')
+
+console.log(res)
+ // const res3 = promise.resolve('res3')
     // const res4 = promise.resolve('res4')
     // const res8 = promise.resolve('res8')
     // const res9 = promise.all([res3,res4,res8])
@@ -23,8 +36,13 @@ const p1 = new promise((resolve, reject) => {
     // console.log(res9)
     // console.log(res10)
 
+p1.then(v=>{
+   console.log(v)
+},e=>{
 
-p1.catch('rr')
+   console.log(e)
+})
+
 
   
  
